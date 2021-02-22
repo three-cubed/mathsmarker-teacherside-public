@@ -1,0 +1,24 @@
+<div class="centredText">
+    <h1>
+        <small>Welcome to</small>
+        <br><br>Mathsmarker Teacherside
+        <br><br><small>for</small>
+        <br><br><%= users[0].userName %>
+        <br><br>
+    </h1> 
+</div>
+
+<div class="centred">
+    <a href="/index"><button type="button" class="btn-wide">Begin!</button></a>
+</div>
+
+<script>
+    topBarMain = document.getElementById('topBarMain');
+    topBarRight = document.getElementById('topBarRight');
+    topBarMain.style.width = '100vw';
+    topBarRight.innerHTML = '';
+</script>
+
+<style>
+    .btn-wide{font-size: 1.25rem};
+</style>

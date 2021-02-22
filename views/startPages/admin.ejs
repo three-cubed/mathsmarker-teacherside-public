@@ -1,0 +1,73 @@
+<a href="/index"><button type="button" class="btn">⇦ Back</button></a>
+
+<% if (isAdministrator === true) { %>
+    
+    <h1>Administrator options</h1>
+
+    <div>
+        <p>The three basic details of your account are:</p>
+            <ul>
+                <li>The name of your overall account.</li>
+                <li>A case-sensitive password shared by the various individual users, who will not be able to these three basic account details.</li>
+                <li>A case-sensitive administrator password, which will allow amendments to these three basic account details.</li>
+            </ul>
+        <p>
+            You can amend any or all of these. 
+            If you amend the basic account details, nothing else will be changed.
+            Your groups, topics, and exercises will be unaffected, 
+            and you will be able to access them using your new account details.
+        </p>
+    </div>
+    <br>
+
+    <% if (message !== null) { %>
+        <div class="messageDiv centredText">
+            &ensp;
+            <%= message %>
+            &ensp;
+        </div>  
+        <br><br>
+    <% } %>
+
+    <form action="/admin?_method=PUT" method="POST" enctype="application/json; charset=UTF-8">
+        <div>
+            <input type="hidden" id="currentUserName" name="currentUserName" class="widerInput" value="<%= currentUserName %>" readonly>
+        </div>        
+        <div>
+            <label for="userName"><b>Name: </b></label>
+            <input type="text" id="userName" name="userName" class="widerInput" value="<%= currentUserName %>">
+        </div>
+        <br><br>
+        <div>
+            <label for="password"><b>New password: </b></label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <br>
+            <label>Please re-type the password to confirm: </label>
+            <input type="password" name="password2" required>
+        </div>
+        <div>
+            <br><br>
+            <label><b>New administrator password: </b></label>
+            <input type="password" name="adminPassword" required>
+        </div>
+        <div>
+            <br>
+            <label>Please re-type the administrator password to confirm: </label>
+            <input type="password" name="adminPassword2" required>
+        </div>
+        <br><br>
+        <button type="submit" class="btn-wide">Change account details!</button>
+    </form>
+
+<% } else { %>
+    <br><br><br><br>
+    <div class="centred">
+        <div class="messageDiv centredText">
+            &ensp;
+            Sorry, you need to be logged in as the administrator to use this page!
+            &ensp;
+        </div>
+    </div>
+<% } %>

@@ -1,0 +1,58 @@
+<div class="centredText">
+  <h2>
+      <small>Welcome to</small>
+      <br>Mathsmarker Teacherside
+      <br><small>for</small>
+      <br><%= users[0].userName %>
+      <br><br>
+  </h2> 
+</div>
+
+<% if (messages.error) { %>
+  <div class="centred">
+    <div class="messageDiv centredText">
+      &ensp;
+      <%= messages.error %>
+      &ensp;
+    </div>  
+  </div>
+<% } %>
+
+<div id='mobileMessageDiv'></div>
+
+<h3 class="centredText">Please log in:</h3>
+<form action="/login" method="POST">
+    <div class="centred">
+    <select name="userName" style="font-size:22px">
+        <option selected value="<%= users[0].userName %>">&nbsp;<%= users[0].userName %></option>
+        <option value="<%= users[1].userName %>">&nbsp;<%= users[1].userName %></option>
+    </select>
+    </div>
+    <br><br>
+    <div class="centred">
+       <label for="password" class="centred">Password (case-sensitive):</label>
+    </div>
+    <br>
+    <div class="centred">
+        <input type="password" id="password" name="password" required>
+    </div>  
+    <br><br>
+    <div class="centred">
+        <button type="submit" class="btn">Login</button>
+    </div>  
+</form>
+
+
+<script>
+
+  topBarMain = document.getElementById('topBarMain');
+  topBarRight = document.getElementById('topBarRight');
+  topBarMain.style.width = '100vw';
+  topBarRight.innerHTML = '';
+
+  mobileMessageDiv = document.getElementById('mobileMessageDiv');
+  if (( window.innerWidth <= 620 ) || ( window.innerHeight <= 620 )) {
+      mobileMessageDiv.innerHTML = '<div class="centred"><h4 class="messageDiv centredText"><br>You appear to viewing on a mobile phone or other small-screened device. The interface will function, but display elements may be disrupted.<br><br>If possible, log in from a computer or a larger-screened device.<br><br></h4></div><br><br>'
+  }
+
+</script>

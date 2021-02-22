@@ -1,0 +1,10 @@
+<div class="errorAnouncement">
+    <h2>Sorry,&ensp;an error has occurred.</h2>
+    <p>You can return to the main menu by <a href="/index">clicking here</a></p>
+
+<% if (typeof(err) !== 'undefined') { %>
+    <p class="errorAnouncement">The error message below may be of use.</p><br></div>
+    <p><%= err %></p>
+<% } else { %>
+    <p class="errorAnouncement">Unfortunately, there is no further information on this specific error.</p><br></div>
+<% } %>

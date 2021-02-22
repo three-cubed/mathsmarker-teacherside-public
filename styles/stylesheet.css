@@ -1,0 +1,200 @@
+/* Body (all views) */
+
+#body {
+    background-color: rgb(255, 253, 232);
+}
+
+/* Styles for elements within the layout.ejs page */
+
+#topBar {
+    display: flex; 
+    flex-direction: row; 
+    height: 6vw; 
+    min-height: 10vh; 
+    opacity: 0.9;
+}
+#topBarMain {
+    width: 90vw; 
+    height: 6vw; 
+    min-height: 10vh; 
+    background: #0440a7; 
+    color: gold; 
+    border-bottom: 3px solid gold; 
+    border-top: 3px solid gold;
+}
+#titleSpan {
+    font-size: 22px;
+    position:relative;
+    top:3.3vh;
+    left:1.5vh;
+}
+#topBarRight {
+    height:6vw; 
+    width:10vw; 
+    min-height:10vh; 
+    background:#0440a7; 
+    align-items:center; 
+    justify-content:center; 
+    border-bottom: 3px solid gold; 
+    border-top: 3px solid gold;
+}
+#fullMenuBtn {
+    height: 6vw; 
+    width: 10vw; 
+    min-height: 10vh; 
+    border: solid 3px darkred; 
+    border-radius: 33%; 
+    background: #0440a7; 
+    color: gold; 
+    font-size: 1.4vw; 
+    outline: none;
+}
+#fullMenuBtn:active {
+    border: solid 5px darkred
+}
+#topRightMenu {
+    z-index: -20; 
+    width: 40vw;  
+    min-width: 100px; 
+    display: flex; 
+    justify-content: right; 
+    flex-direction: column; 
+    min-height: 25vh;
+    position: relative; 
+    left: 56.5vw; 
+    top: 6px;
+}
+.menuOptionDiv {
+    z-index: 90; 
+    width: 43.3vw; 
+    height: 0vh; 
+    color: gold; 
+    border: solid 0px darkred; 
+    font-size: 5vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0s linear;
+}
+.menuBtn {
+    width: 43.3vw; 
+    height: 6.2vh; 
+    background: #0440a7; 
+    color: gold; 
+    opacity: 0.5; 
+    font-size: 0.62em; 
+    text-align: left; 
+    border: none;
+}
+.menuBtn:hover {
+    opacity: 0.9;
+}
+.menuHREF {
+    color: gold; 
+    text-decoration: none; 
+    display: block; 
+    overflow: auto;
+}         
+#mainDisplayDiv {
+    position: relative; 
+    top: -22vh;
+}
+
+/* Styles for buttons found across pages */
+
+button:hover {
+    filter: brightness(85%);
+}
+button:active {
+    filter: brightness(70%);
+}
+.btn {height: 30px; 
+    width: 180px; 
+    border-radius: 25%; 
+    outline: none; 
+    background-color: #0440a7; 
+    color: gold; 
+    border: 2.2px solid gold;
+}
+.btn-wide {min-height: 40px; 
+    width: 240px; 
+    border-radius: 25%; 
+    outline: none; 
+    background-color: #0440a7; 
+    color: gold; 
+    border: 2.2px solid gold;
+}
+.btn-danger {
+    height: 30px; 
+    width: 180px; 
+    border-radius: 25%; 
+    outline: none; 
+    background-color: #f79646; 
+    color: black;
+}
+.btn-danger-wide {
+    min-height: 40px; 
+    width: 240px; 
+    border-radius: 25%; 
+    outline: none; 
+    background-color: #f79646; 
+    color: black;
+}
+.btn-danger-small {
+    border-radius: 12%; 
+    outline: none; 
+    color: black; 
+    background-color: #f79646;
+}
+.btn-extra {
+    border-radius: 12%; 
+    outline: none; 
+    color: #0440a7; 
+    background-color: #b4cce4;
+    position: relative;
+    top: -0.15vw
+    }
+
+/* Other styles found across pages */
+
+.admin {
+    color: darkred;
+}
+.centred {
+    display: flex; 
+    justify-content: center;
+}
+.centredText {
+    text-align: center;
+}
+.displayBox {
+    font-size: 20px; 
+    background-color: #FAFFFF; 
+    border-color: #E0FFFF; 
+    border-width: 0.2rem; 
+    border-bottom-width: 0.1rem; 
+    border-style: solid;
+}
+.errorAnouncement{
+    background-color:palevioletred;
+}
+.flexRowWrap {
+    display: flex; 
+    flex-wrap: wrap; 
+    flex-direction: row;
+}
+.halfWidth {
+    width: 50vw;
+}
+.messageDiv{
+    background-color: #ffff99; 
+    border: 3px solid darkred; 
+    border-radius: 10%;
+    max-width:300px;
+}
+.noteInput {
+    width: calc(160px + 30vw);
+}
+.widerInput {
+    width: calc(160px + 20vw);
+}

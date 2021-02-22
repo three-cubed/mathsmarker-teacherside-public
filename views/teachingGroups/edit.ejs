@@ -1,0 +1,15 @@
+<a href="/teachingGroups/<%= teachingGroup._id %>"><button type="button" class="btn">⇦ Back</button></a>
+
+<h2 class="centredText">Rename Teaching Group</h2>
+
+<form action="/teachingGroups/edit/<%= teachingGroup.id %>?_method=PUT" method="POST" enctype="application/json; charset=UTF-8">
+    <label class="centred">New name for this teaching group:</label>
+    <br>
+    <div class="centred">
+        <input type="text" name="name" value="<%= teachingGroup.name %>">
+    </div>
+    <br><br>
+    <div class="centred">
+        <button type="submit" class="btn">Save name</button>
+    </div>
+</form>

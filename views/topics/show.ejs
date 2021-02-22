@@ -1,0 +1,28 @@
+<a href="/teachingGroups/<%= topic.teachingGroup._id %>"><button type="button" class="btn">⇦ Teaching group</button></a>
+&emsp;<a href="../exercises/new/<%= topic._id %>"><button type="button" class="btn">Create a new exercise</button></a>
+&emsp;<a href="/topics/edit/<%= topic._id %>"><button type="button" class="btn">Editing options</button></a>
+
+<br><br>
+
+<h2 class="centredText"><%= topic.name %></h2>
+
+
+<% if (exercisesByTopic.length > 0) { %>
+    <% exercisesByTopic.forEach(exercise => { %>
+        <div class="centred">
+            <div class="displayBox halfWidth">
+                <span>&nbsp;&nbsp;</span>    
+                <a href="../exercises/<%= exercise.id %>"><button type="button" class="btn-extra">View</button></a>                
+                <span>&nbsp;&nbsp;</span>
+                <%= exercise.name %>           
+            </div>
+        </div>
+
+    <% }) %>
+<% } else { %>       
+    <div class="centredText">
+        <h4>You do not have any exercises for this topic at the moment.</h4>
+        <p>If you wish to create an exercise for this topic, choose 'Create a new exercise' above.</p>
+        <p>If you wish to delete the topic, choose 'Editing options' above.</p>
+    </div> 
+<% } %>

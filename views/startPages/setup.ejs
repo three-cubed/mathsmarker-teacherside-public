@@ -1,0 +1,57 @@
+<h1>Welcome to set-up!</h1>
+
+<div>
+  <p>You need to choose three details for installation:</p>
+  <ul>
+      <li>The name of your overall account.</li>
+      <li>A case-sensitive password shared by the various individual users, who will not be able to these three basic account details.</li>
+      <li>A case-sensitive administrator password, which will allow amendments to these three basic account details.</li>
+  </ul>
+  <p>After setting up, you will immediately be asked to log in to your new account.</p>
+</div>
+<br>
+
+<% if (message !== null) { %>
+  <div class="messageDiv centredText">
+    &ensp;
+    <%= message %>
+    &ensp;
+  </div>  
+  <br><br>
+<% } %>
+
+<form action="/setup" method="POST" enctype="application/json; charset=UTF-8">
+  <div>
+    <label for="userName"><b>Name: </b></label>
+    <input type="text" id="userName" name="userName" class="widerInput" placeholder="e.g. Hypothesis Hill Primary School" required>
+  </div>
+  <br><br>
+  <div>
+    <label for="password"><b>Password: </b></label>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <div>
+    <br>
+    <label>Please re-type the password to confirm: </label>
+    <input type="password" name="password2" required>
+  </div>
+  <div>
+    <br><br>
+    <label><b>Administrator password: </b></label>
+    <input type="password" name="adminPassword" required>
+  </div>
+  <div>
+    <br>
+    <label>Please re-type the administrator password to confirm: </label>
+    <input type="password" name="adminPassword2" required>
+  </div>
+  <br><br>
+  <button type="submit" class="btn-wide">Set up!</button>
+</form>
+
+<script>
+  topBarMain = document.getElementById('topBarMain');
+  topBarRight = document.getElementById('topBarRight');
+  topBarMain.style.width = '100vw';
+  topBarRight.innerHTML = '';
+</script>

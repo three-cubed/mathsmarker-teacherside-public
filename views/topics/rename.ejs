@@ -1,0 +1,15 @@
+<a href="/topics/edit/<%= topic._id %>"><button type="button" class="btn">⇦ Back</button></a>
+
+<h2 class="centredText">Rename Topic</h2>
+
+<form action="/topics/rename/<%= topic.id %>?_method=PUT" method="POST" enctype="application/json; charset=UTF-8">
+    <label class="centred">New name for this topic:</label>
+    <br>
+    <div class="centred">
+        <input type="text" name="name" value="<%= topic.name %>">
+    </div>
+    <br><br>
+    <div class="centred">
+        <button type="submit" class="btn">Save name</button>
+    </div>
+</form>

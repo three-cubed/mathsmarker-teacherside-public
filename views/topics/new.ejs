@@ -1,0 +1,42 @@
+<a href="/teachingGroups/<%= currentTeachingGroup._id %>"><button type="button" class="btn">⇦ Teaching group</button></a>
+
+<h2 class="centredText">Create a New Topic</h2>
+
+<form action="/topics" method="POST" enctype="application/json; charset=UTF-8"> 
+
+    <div id="teachingGroupOptions">
+        
+        <label class="centred">Teaching group to put your new topic in:</label>
+
+        <% if (teachingGroups.length < 1) { %>
+            <h3>You have no teaching groups to select from. Create a teaching group for your topics first!</h3>>
+        <% } %>
+        <br>
+        <div class="centred">
+            <select name="teachingGroup">
+                    <% teachingGroups.forEach(teachingGroup => { %>
+                        <% if (currentTeachingGroup.name === teachingGroup.name) { %>
+                            <option selected value="<%= teachingGroup.id %>"><%= teachingGroup.name %></option>
+                        <% } else { %>
+                            <option value="<%= teachingGroup.id %>"><%= teachingGroup.name %></option>
+                        <% } %>
+                    <% }) %>
+            </select>
+        </div>
+    </div>
+
+    <br><br>
+  
+    <% if (teachingGroups.length > 0) { %>
+        <label class="centred">Topic Name</label>
+        <br>
+        <div class="centred">
+            <input type="text" name="name" placeholder="e.g. Addition">
+        </div>
+        <br><br>
+        <div class="centred">
+            <button type="submit" class="btn">Create this new topic</button>
+        </div>     
+    <% } %>
+
+</form>

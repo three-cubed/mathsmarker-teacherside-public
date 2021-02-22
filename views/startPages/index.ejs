@@ -1,0 +1,24 @@
+<a href="/teachingGroups/new"><button type="button" class="btn">Create new teaching group</button></a>
+
+<div class="centredText">
+    <h2>Mathsmarker Teacherside<br><small>for</small><br><%= overallUser[0].userName %></h2> 
+</div>
+
+<% if (teachingGroups.length === 0) { %>
+    <h4>There are no teaching groups at the moment.</h4>
+<% } %>
+
+<div class="flexRowWrap centred">
+    <% if (isAdministrator === true) { %>
+        <h4>
+            <span>&emsp;</span>
+            <a href="/admin %>"><button type="button" class="btn-wide admin"><b>Administrator options</b></button></a> 
+        </h4>
+    <% } %>
+    <% teachingGroups.forEach(teachingGroup => { %>
+        <h4>
+            <span>&emsp;</span>
+            <a href="/teachingGroups/<%= teachingGroup.id %>"><button type="button" class="btn-wide"><%= teachingGroup.name %></button></a> 
+        </h4>
+    <% }) %>
+</div>

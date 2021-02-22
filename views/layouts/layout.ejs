@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <title>Mathsmarker</title>
+</head>
+
+<body id="body">
+
+    <div id=topBar>
+        <div id=topBarMain class=topBarPart>
+            <span id=titleSpan>
+                Mathsmarker Teacherside
+            </span>         
+        </div> 
+        <div id=topBarRight class=topBarPart>
+            <button id=fullMenuBtn onclick='transformMenu()'>
+                <span style='font-size:1.1vw; position: relative; top:0.4vw''>MATHS</span>
+                <br>
+                <span style='font-size:0.95vw'>marker!</span>
+                <br>
+                <span id="arrow" style='font-size:2.1vw; position:relative; top:-5px'>▾</span>
+            </button>
+        </div> 
+    </div>
+
+    <div id="topRightMenu"></div>
+
+    <div id="mainDisplayDiv">
+        
+    <%- body %>
+
+    </div>
+
+    <script>
+
+    const topRightMenu = document.getElementById('topRightMenu');
+    const arrow = document.getElementById('arrow');
+    if (arrow !== null) arrow.innerText = '▾';
+    let menuClosed = true;
+    let inTransition = false;
+    const menuOptions = [{ text: 'Start Menu', destination: '/index' }, { text: 'Help & Information', destination: '/information-help' }];
+    // Over three menuOptions (makes four including logout) would make it desirable to amend styles topRightMenu.min-height and mainDisplayDiv.top
+    const menuBtnList = [];
+
+    for (let i = 0; i < menuOptions.length; i++) {
+        const newDiv = document.createElement('div');
+        newDiv.className = 'menuOptionDiv';
+        newDiv.id = `menuOptionDiv${i}`;
+        newDiv.style.transition = 'all 1s linear';
+        topRightMenu.appendChild(newDiv);
+
+        const newBtn = `<button type="button" class="menuBtn"><a class="menuHREF" href="${menuOptions[i].destination}">${menuOptions[i].text}</a></btn>`;
+        menuBtnList.push(newBtn);
+    }
+
+    const newDiv = document.createElement('div');
+    newDiv.className = 'menuOptionDiv';
+    newDiv.id = `menuOptionDiv${menuOptions.length}`;
+    newDiv.style.transition = 'all 1s linear';
+    topRightMenu.appendChild(newDiv);
+    menuBtnList.push('<form action="/logout?_method=DELETE" method="POST"><button type="submit" class="menuBtn menuHREF">Log Out</button></form>');
+
+    const menuOptionDivs = document.querySelectorAll('.menuOptionDiv');
+
+    function transformMenu() {
+        if (menuClosed === true && inTransition === false) {
+            inTransition = true;
+            menuClosed = false;
+            topRightMenu.style.zIndex = '20';
+            for (let i = 0; i < menuOptionDivs.length; i++) {
+                menuOptionDivs[i].style.transition = 'all 1s linear';
+                menuOptionDivs[i].animate([{ opacity: '0' }, { opacity: '1' }], { duration: 1500, fill: 'forwards' });
+                menuOptionDivs[i].style.height = '6vh';
+                menuOptionDivs[i].style.border = 'solid 1px darkred';
+                menuOptionDivs[i].style.borderRight = 'none';
+                menuOptionDivs[i].innerHTML = menuBtnList[i];
+            }
+            arrow.innerHTML = '<span style="font-size: 1vw; position: relative; top: -0.12vw">✕</span>';
+            setTimeout('ceaseTransition()', 1000);
+        } else if (menuClosed === false && inTransition === false) {
+            inTransition = true;
+            for (let i = 0; i < menuOptionDivs.length; i++) {
+                menuOptionDivs[i].style.transition = 'all 1.5s linear';
+                menuOptionDivs[i].animate([{ opacity: '1' }, { opacity: '0' }], { duration: 1500, fill: 'forwards' });
+                menuOptionDivs[i].style.height = '0vh';
+                menuOptionDivs[i].style.border = 'solid 0px darkred';
+            }
+            arrow.innerText = '▾';
+            setTimeout('blankOutOptions()', 1500);
+        }
+    }
+
+    function blankOutOptions() {
+        for (let i = 0; i < menuOptionDivs.length; i++) {
+            menuOptionDivs[i].innerHTML = '';
+        }
+        topRightMenu.style.zIndex = '-20';
+        menuClosed = true;
+        ceaseTransition();
+    }
+
+    function ceaseTransition() {
+        inTransition = false;
+    }
+
+   </script>
+
+</body>
+
+</html>
