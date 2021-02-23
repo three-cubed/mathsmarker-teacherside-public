@@ -24,17 +24,17 @@
 }
 #titleSpan {
     font-size: 22px;
-    position:relative;
-    top:3.3vh;
-    left:1.5vh;
+    position: relative;
+    top: 3.3vh;
+    left: 1.5vh;
 }
 #topBarRight {
-    height:6vw; 
-    width:10vw; 
-    min-height:10vh; 
-    background:#0440a7; 
-    align-items:center; 
-    justify-content:center; 
+    height: 6vw; 
+    width: 10vw; 
+    min-height: 10vh; 
+    background: #0440a7; 
+    align-items: center; 
+    justify-content: center; 
     border-bottom: 3px solid gold; 
     border-top: 3px solid gold;
 }
@@ -108,7 +108,8 @@ button:hover {
 button:active {
     filter: brightness(70%);
 }
-.btn {height: 30px; 
+.btn {
+    height: 30px; 
     width: 180px; 
     border-radius: 25%; 
     outline: none; 
@@ -116,7 +117,8 @@ button:active {
     color: gold; 
     border: 2.2px solid gold;
 }
-.btn-wide {min-height: 40px; 
+.btn-wide {
+    min-height: 40px; 
     width: 240px; 
     border-radius: 25%; 
     outline: none; 
@@ -153,7 +155,7 @@ button:active {
     background-color: #b4cce4;
     position: relative;
     top: -0.15vw
-    }
+}
 
 /* Other styles found across pages */
 
@@ -175,8 +177,8 @@ button:active {
     border-bottom-width: 0.1rem; 
     border-style: solid;
 }
-.errorAnouncement{
-    background-color:palevioletred;
+.errorAnouncement {
+    background-color: palevioletred;
 }
 .flexRowWrap {
     display: flex; 
@@ -186,11 +188,11 @@ button:active {
 .halfWidth {
     width: 50vw;
 }
-.messageDiv{
+.messageDiv {
     background-color: #ffff99; 
     border: 3px solid darkred; 
     border-radius: 10%;
-    max-width:300px;
+    max-width: 300px;
 }
 .noteInput {
     width: calc(160px + 30vw);
